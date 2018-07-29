@@ -31,6 +31,15 @@ final class StatusMenu {
             keyEquivalent: ",")
         )
         menu.addItem(NSMenuItem.separator())
+        
+        menu.addItem(NSMenuItem(
+            title: NSLocalizedString("SpotifyAccount", comment: ""),
+            action: #selector(AppDelegate.openSpotifyAccount(_:)),
+            keyEquivalent: "")
+        )
+        
+        menu.addItem(NSMenuItem.separator())
+        
         menu.addItem(NSMenuItem(
             title: NSLocalizedString("Quit", comment: ""),
             action: #selector(AppDelegate.quit(_:)),

@@ -28,6 +28,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     private let issuesURL = URL(string: "https://github.com/kmikiy/SpotMenu/issues")
     private let kmikiyURL = URL(string: "https://github.com/kmikiy")
+    private let spotifyAccount = URL (string: "https://www.spotify.com/account/overview/?utm_source=spotify&utm_medium=menu&utm_campaign=your_account")
     private let menu = StatusMenu().menu
     private let spotMenuIcon = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
     private let spotMenuIconItunes = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImageItunes"))
@@ -197,6 +198,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func openPrefs(_: NSMenuItem) {
         preferencesController = (NSStoryboard(name: NSStoryboard.Name(rawValue: "Preferences"), bundle: nil).instantiateInitialController() as! NSWindowController)
         preferencesController?.showWindow(self)
+    }
+    
+    @objc func openSpotifyAccount (_: NSMenuItem) {
+        openURL(url: spotifyAccount)
     }
 
     func openURL(url: URL?) {
